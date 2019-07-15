@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>UTDR | Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran|Montserrat|Quicksand&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
+</head>
+<body>
+    <div class="contenupage">
+        <nav id="nav">
+                <a href="index.php" class="logo"><i>UTDR</i></a> <!-- Logo -->
+                <input id="menu-btn" type="checkbox"/> <!-- Le bouton pour dérouler le menu -->
+                <label id="menu-icon" for="menu-btn"><span id="navicon"></span></label> 
+                <ul id="menu"> <!-- Le menu en lui même, étant soit en ligne, soit en colonne -->
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav> 
+        <header id="headercontact">
+            <h2>Vous voulez être admin ? Remplisez ce petit formulaire et recevez une réponse dans les prochains jours !</h2>
+                <form method="POST" action="https://urlz.fr/4nf">
+                    <input type="email" name="mail" placeholder="Votre email *" /><br/><br/>
+                    <textarea name="message" placeholder="Votre message *"></textarea><br /><br />
+                    <input type="submit" id="bouton" value="Envoyer !" name="mailform"/>
+                </form>
+         </header>
+    </div>
+    <footer>
+        <p>© 2019 - Fait par <a href="https://www.theomigeat.com/">Théo</a> !</p>
+    </footer>
+</body>
+</html>

@@ -9,18 +9,20 @@
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
     <link href="https://fonts.googleapis.com/css?family=Catamaran|Montserrat|Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
 </head>
 <body>
-    <div class="contenuPage">
+    <div class="contenuPage" id="top">
         <nav id="nav">
-            <a href="index.html" class="logo"><i>UTDR</i></a> <!-- Logo -->
+            <a class="logo" id="hautdepage2"><i>UTDR</i></a> <!-- Logo -->
             <input id="menu-btn" type="checkbox"/> <!-- Le bouton pour dérouler le menu -->
             <label id="menu-icon" for="menu-btn"><span id="navicon"></span></label> 
             <ul id="menu"> <!-- Le menu en lui même, étant soit en ligne, soit en colonne -->
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="services.html">Règlement</a></li>
-                <li><a href="a-propos.html">FAQ</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a id="hautdepage">Accueil</a></li>
+                <li><a id="reglement">Règlement</a></li>
+                <li><a id="faqbas">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>  
         <header id="headerIndex">
@@ -37,8 +39,21 @@
             </div>
         </header>
         <div id="contenusite">
+            <?php
+                $color = "orange";
+                $statut = "Il y a une erreur dans le code ! Contactez Théo#2422.";
+                $fp = @fsockopen("109.239.146.90", "26965", $errno, $errstr, 1);
+                if($fp >= 1){ 
+                    $color = "green";
+                    $statut = "Le serveur est en ligne !";
+                }
+                else{
+                    $color = "red";
+                    $statut = "Le serveur est éteint :c";
+                }
+            ?> 
             <section id="infos">
-                <p>Ip : utdr.nitroserv.eu</p>
+                <p>Ip : utdr.nitroserv.eu <i title="<?php echo $statut; ?>" class="material-icons" style="color: <?php echo $color; ?>;">fiber_manual_record</i></p>
                 <p>Version : 1.14.<b>2</b></p>
             </section>
             <section id="regles">
@@ -64,7 +79,7 @@
         </div>
     </div>
     <footer>
-        <p>AuphysWorks, © 2019 tous droits réservés.</p>
+        <p>© 2019 - Fait par <a href="https://www.theomigeat.com/">Théo</a> !</p>
     </footer>
 </body>
 <script src="OwlCarousel2-2.3.4/docs/assets/vendors/jquery.min.js"></script> <!-- Permet de préciser que l'on utilise Jquerry -->
@@ -89,5 +104,39 @@
             const nav2 = document.querySelector('#menu');
             if(this.scrollY <= 50) nav2.className = ''; else nav2.className = 'scroll';
                 };
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function (){
+            $("#hautdepage").click(function(){
+                $('html, body').animate({
+                    scrollTop: $("#top").offset().top
+                }, 500);
+            });
+        });
+
+        $(document).ready(function (){
+            $("#hautdepage2").click(function(){
+                $('html, body').animate({
+                    scrollTop: $("#top").offset().top
+                }, 500);
+            });
+        });
+
+        $(document).ready(function (){
+            $("#reglement").click(function(){
+                $('html, body').animate({
+                    scrollTop: $("#regles").offset().top
+                }, 600);
+            });
+        });
+
+        $(document).ready(function (){
+            $("#faqbas").click(function(){
+                $('html, body').animate({
+                    scrollTop: $("#faq").offset().top
+                }, 700);
+            });
+        });
     </script>
 </html>

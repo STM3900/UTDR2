@@ -22,8 +22,26 @@ footer {
     font-family: 'Montserrat', sans-serif;
 }
 
+footer a:link{
+    color: white;
+}
+
+footer a:visited{
+    color :white;
+}
+
+footer a:hover{
+    animation-name: rainbow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
 a{
     color:white;
+}
+
+a:hover{
+    cursor: pointer;
 }
 
 #nav {
@@ -252,6 +270,118 @@ a{
     font-size: 20px;
 }
 
+#headercontact{
+    margin-top: 100px;
+}
+
+#headercontact h2{
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+form{
+    margin-top: 1.5%;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 25%;
+    margin-right: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+input[type*="e"]{
+    font-size: 15px;
+    padding: 12px 20px;
+    margin: 0px 0;
+    box-sizing: border-box;
+    width: 100%;
+    color: rgb(53, 53, 53);
+    border: 2px solid #555555;
+    transition: 0.3s;
+    outline: none;
+    font-style: italic;
+}
+  
+input[type*="e"]:focus{
+    border: 2px solid #1b1b1b;
+    border-radius: 10px;
+}
+
+textarea{
+    padding: 12px 20px; 
+    padding-bottom: 30vh;
+    box-sizing: border-box;
+    color: rgb(53, 53, 53);
+    border: 2px solid #555555;
+    transition: 0.3s;
+    outline: none;
+    font-style: italic;
+    font-size: 20px;
+}
+
+textarea:focus{
+    border: 2px solid #1b1b1b;
+    border-radius: 10px;
+}
+
+#headercontact h2{
+    font-size: 27px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+/* Boutons */
+
+
+#bouton{
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444444;
+    border: solid 1px #444444;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    padding: 20px 10px 20px 10px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 2%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#bouton:hover{
+    background-color: white;
+    color: black;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+@keyframes rainbow {
+    0% {
+      color: white;
+    }
+    12% {
+      color: rgb(50, 75, 185);
+    }
+    25% {
+      color: rgb(64, 192, 64);
+    }
+    37% {
+      color: rgb(241, 241, 64);
+    }
+    50% {
+      color: rgb(209, 42, 42);
+    }
+    62% {
+      color: rgb(241, 241, 64);
+    }
+    75% {
+      color: rgb(64, 192, 64);
+    }
+    87% {
+      color: rgb(50, 75, 185);
+    }
+  }
+
 @media (min-width: 800px) { /* Permet de passer en mode "pc" quand la largeur est supérieure à 800 px */
     #nav li {
       float: left;
@@ -336,11 +466,82 @@ a{
     #contenu article p{
         font-size: 5vw;
     }
+
+    #infos{
+        flex-direction: column;
+    }    
+
+    #contenusite h1{
+        font-size: 9vw;
+    }
+    
+    #contenusite ol{
+        font-size: 4vw;
+    }
+    
+    #contenusite ol li{
+        margin-bottom: 20px;
+    }
+    
+    #contenusite h2{
+        font-size: 5vw;
+    }
+    
+    #contenusite ul{
+        font-size: 4vw;
+    }
+
+    footer{
+        font-size: 3vw;
+    }
+
+    #bouton{
+        font-size: 4vw;
+        padding: 15px 10px 15px 10px;
+        border-radius: 5px;
+        margin-top: 5%;
+    }
+
+    #headercontact h2{
+        margin-left: 3%;
+        margin-right: 3%;
+        font-size: 6vw; 
+        text-align: left;
+    }
+    
+    form{
+        margin-top: 1.5%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-bottom: 7%;
+    }
+    
+    input[type*="e"]{
+        font-size: 15px;
+        padding: 12px 20px;
+        width: 100%;
+        color: rgb(53, 53, 53);
+        border: 2px solid #555555;
+        transition: 0.3s;
+        outline: none;
+        font-style: italic;
+    }
+    
+    textarea{
+        padding: 12px 20px; 
+        padding-bottom: 30vh;
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 420px) {
     
     #carousel img{
         min-width: 900px;
+    }
+
+    #contenusite{
+        margin-left: 4%;
+        margin-right: 4%;
     }
 }
