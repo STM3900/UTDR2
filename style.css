@@ -1,0 +1,346 @@
+body{
+    margin: 0px;
+    background: #131313;
+    font-family: 'Catamaran', sans-serif;
+    color: white;   
+    position: relative;
+    min-height: 100vh;
+}
+
+.contenuPage{
+    padding-bottom: 4em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;    
+    background-color: #131313;  
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+a{
+    color:white;
+}
+
+#nav {
+    display: block;
+    background-color: #13131300;
+    box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.205);
+    position: fixed; /* Permet que la barre de navigation reste toujours en haut de la page */
+    width: 100%;
+    z-index: 3;
+    top: 0;
+    margin-bottom: 20px;
+    transition: 0.3s;
+}
+  
+#nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+}
+  
+#nav li a {
+    display: block;
+    padding: 20px 20px;
+    border-right: 1px hidden #f4f4f4;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+  
+#nav li a:hover,
+#nav #menu-btn:hover {
+    background-color: #ffffff3d;
+    color: rgb(233, 233, 233);
+}
+  
+#nav .logo {
+    display: block;
+    float: left; /* Met le texte sur la gauche */
+    font-size: 30px;
+    padding: 10px 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-family: 'Quicksand', sans-serif;
+}
+.logo:hover{
+    color: rgb(236, 236, 236);
+}
+  
+/* menu */
+  
+#nav #menu {
+    clear: both; /* Empèche que des élements soit à côté du texte */
+    max-height: 0; 
+    transition: max-height .2s ease-out;
+}
+  
+/* menu icon */
+  
+#nav #menu-icon {
+    cursor: pointer;
+    float: right; 
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+}
+  
+#nav #menu-icon #navicon {
+    background: white;
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 18px;
+}
+  
+#nav #menu-icon #navicon:before,
+#nav #menu-icon #navicon:after {
+    background: white;
+    content: ''; 
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+  
+#nav #menu-icon #navicon:before {
+    top: 5px;
+}
+  
+#nav #menu-icon #navicon:after {
+    top: -5px;
+}
+  
+/* menu btn */
+  
+#nav #menu-btn {
+    display: none;
+}
+  
+#nav #menu-btn:checked ~ #menu {
+    max-height: 300px;
+}
+  
+#nav #menu-btn:checked ~ #menu-icon #navicon {
+    background: transparent;
+}
+  
+#nav #menu-btn:checked ~ #menu-icon #navicon:before {
+    transform: rotate(-45deg);
+}
+  
+#nav #menu-btn:checked ~ #menu-icon #navicon:after {
+    transform: rotate(45deg);
+}
+  
+#nav #menu-btn:checked ~ #menu-icon:not(.steps) #navicon:before,
+#nav #menu-btn:checked ~ #menu-icon:not(.steps) #navicon:after {
+    top: 0;
+}
+
+#nav.scroll {
+    background-color: #131313;
+    color: #eef;
+    box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.568);
+}
+
+
+#menu.scroll a:hover{
+    background-color: #333333;
+    color: rgb(233, 233, 233);
+}
+
+
+/*Header de la page 1*/
+
+#headerIndex{
+    height: 100vh;
+}
+
+#carousel{
+    position: absolute;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#carousel img{
+    min-height: 100vh;
+    filter: brightness(0.6);
+}
+
+
+#contenu{
+    position: absolute;
+    z-index: 2;
+    text-align: center;
+    height: 100vh;
+    width: 100%;
+}
+
+#contenu article{
+    margin-top: 27vh;
+    padding-top: 1%;
+    padding-bottom: 2%;
+    margin-right: 4%;
+    margin-left: 4%;
+    background: rgba(0, 0, 0, 0.301);
+    border-radius: 5px;
+}
+
+#contenu article h1{
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+}
+
+#contenu article p{
+    color: white;
+    font-family: 'Catamaran', sans-serif;
+    font-size: 30px;
+}
+
+#contenusite{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#infos{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+#infos p{
+    font-size: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background: rgba(0, 0, 0, 0.301);
+    border-radius: 3px;
+}
+
+#contenusite h1{
+    font-size: 45px;
+    font-family: 'Quicksand', sans-serif;
+}
+
+#contenusite ol{
+    font-size: 20px;
+}
+
+#contenusite ol li{
+    margin-bottom: 20px;
+}
+
+#contenusite h2{
+    font-size: 25px;
+}
+
+#contenusite ul{
+    font-size: 20px;
+}
+
+@media (min-width: 800px) { /* Permet de passer en mode "pc" quand la largeur est supérieure à 800 px */
+    #nav li {
+      float: left;
+    }
+    #nav li a {
+      padding: 20px 30px;
+    }
+    #nav #menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    #nav #menu-icon {
+      display: none;
+    }
+
+}
+
+@media (max-width: 800px) {
+
+    #nav{
+        background: #131313;
+        box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.568);
+    }
+
+    #nav li a:hover,
+    #nav #menu-btn:hover {
+        background-color: #333333;
+        color: rgb(233, 233, 233);
+    }
+    
+    #carousel img{
+        min-width: 1000px;
+    }
+    
+    #contenu article h1{
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 8vw;
+    }
+    
+    #contenu article p{
+        color: white;
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-size: 4vw;
+    }
+    
+    input[type*="e"]{
+        font-size: 15px;
+        padding: 12px 20px;
+        width: 100%;
+        color: rgb(53, 53, 53);
+        border: 2px solid #555555;
+        transition: 0.3s;
+        outline: none;
+        font-style: italic;
+    }
+    
+    textarea{
+        padding: 12px 20px; 
+        padding-bottom: 30vh;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    
+    #carousel img{
+        min-width: 1000px;
+    }
+
+    #bandeau p{
+        font-size: 4.5vw;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+
+    #contenu article h1{
+        font-size: 9vw;
+    }
+    
+    #contenu article p{
+        font-size: 5vw;
+    }
+}
+
+@media (max-width: 420px) {
+    
+    #carousel img{
+        min-width: 900px;
+    }
+}
