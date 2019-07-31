@@ -12,6 +12,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
     <link rel="shortcut icon" href="media/favicon.png" type="image/x-icon">
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script> 
+    $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+    });
+</script>
 <body>
     <div class="contenuPage" id="top">
         <nav id="nav">
@@ -39,28 +47,25 @@
             </div>
         </header>
         <div id="contenusite">
-            <?php
-                $color = "orange";
-                $statut = "Il y a une erreur dans le code ! Contactez Théo#2422.";
-                $fp = @fsockopen("109.239.146.90", "26965", $errno, $errstr, 1);
-                if($fp >= 1){ 
-                    $color = "green";
-                    $statut = "Le serveur est en ligne !";
-                }
-                else{
-                    $color = "red";
-                    $statut = "Le serveur est éteint :c";
-                }
-            ?> 
+                <?php
+                    $data = json_decode(file_get_contents("https://panel.omgserv.com/json/235213/status"));
+                    $status = $data->status->online ? "green" : "red";
+                    $titre = $data->status->online ? "Le serveur est en ligne !" : "Le serveur est éteint :c";
+                    $cpu = $data->status->online ? $data->status->cpu : "N/C";
+                    $ram = $data->status->online ? round($data->status->ram / 1024) : "N/C";
+                    $players = $data->status->online ? $data->status->players->online." / ".$data->status->players->max : "N/C";
+                ?>
             <section id="infos">
-                <p>Ip : utdr.nitroserv.eu <i title="<?php echo $statut; ?>" class="material-icons" style="color: <?php echo $color; ?>;">fiber_manual_record</i></p>
-                <p>Version : 1.14.<b>2</b></p>
+                <p>IP : <i>utdr.mine.gg </i><i class="material-icons" title="<?php echo $titre; ?>" style="color: <?php echo $status; ?>;">fiber_manual_record</i></p>
+                <p title="<?php echo "CPU : ", $cpu, "%", "\n", "RAM : ", $ram, " MO"; ?>">Connectés : <?php echo $players; ?></p>
+                <p>Version : 1.14.<b>3</b></p>
             </section>
             <section id="regles">
                 <h1>Règlement :</h1>
                 <ol>
                     <li>De manière générale, les règles présentes sur le discord du wiki s’appliquent aussi sur le serveur. À savoir des règles de bonne entente ! Donc sois sympa envers les autres joueurs ! </li>
                     <li>Le grief (action de détruire / dégrader la construction d’autrui sans son accord) ainsi que le vol sont tout simplement interdits, sous peine d’un bannissement immédiat et définitif.</li>
+                    <li>Nous vous rappelons que tout logiciel tiers cherchant à donner un avantage au joueur (Xray, Nodus, etc) est prohibé. Les sanctions sont les mêmes que pour la règle précédente.</li>
                     <li>Si vous avez une question, ou que vous voyez un comportement nocif au serveur, n’hésitez pas à contacter l’administration que ce soit sur le serveur ou directement sur discord. Cela évite que des personnes du staff soient tout le temps connectées sur le serveur à surveiller si quelque chose se passe mal au lieu de juste s’amuser !</li>
                     <li>De préférence, ne vivez pas trop éloigné des autres joueurs. Nous sommes une communauté, ce serait dommage de ne pas se croiser ! Il y a déjà un projet de petite ville en construction juste à côté du spawn, alors n’hésitez pas à vous y installer !</li>
                     <li>De plus nous favorisons tout type d’entraide envers les autres joueurs ! Alors n’hésitez pas à partager vos ressources ou faire du commerce / troc entre vous !</li>
@@ -71,11 +76,18 @@
             <section id="faq">
                 <h1>FAQ :</h1>
                 <ul>
-                    <li><h2>Quelle est l'ip du serveur ?</h2>C'est utdr.nitroserv.eu !</li>
-                    <li><h2>Le serveur est en quelle version ? Pourquoi ?</h2>Il est en 1.14.2 pour le moment, mais attendez-vous à ce qu'il passe assez vite en 1.14.3 !</li>
+                    <li><h2>Quelle est l'ip du serveur ?</h2>C'est utdr.mine.gg !</li>
+                    <li><h2>Le serveur est en quelle version ?</h2>Le serveur est actuellement en 1.14.<b>3</b></li>
+                    <li><h2>Est-ce que les versions crackées sont acceptées ?</h2>Non !</li>
+                    <li><h2>Le serveur possède-t-il des mods / des plugins ?</h2>Le serveur n'a ni mods, ni plugins, il est full vanilla ! Il y aura peut-être quelques plugins qui seront installés, mais ils seront destinés à l'administration.</li>
+                    <li><h2>Puis-je ramener un contact qui n'est pas dans le serveur discord ?</h2>Bien sûr ! Comme pour toi il faut juste que cette personne me contacte en message privé sur discord pour être ajoutée dans la whitelist !</li>
+                    <li><h2>J'aimerais venir sur le serveur Minecraft mais je ne suis pas sur le serveur discord du wiki ! Comment faire ?</h2>Tu peux rejoindre le serveur discord en cliquant <a href="https://discordapp.com/invite/Hfc6n95">ici</a> ! Cela te permettra d'être plus proche de la communauté et d'être directement informé des prochaines animations que ce soit sur le serveur Minecraft ou sur discord !</li>
                     <li><h2>Je peux être admin ?</h2>Bien sûr ! Je te laisse remplir ce petit formulaire en cliquant <a href="contact.html">ici</a> !</li>
                 </ul>
             </section>
+            <div id="flip"><p>Click to slide the panel down or up</p></div>
+            <div id="panel"><iframe src="http://utdr.mine.gg:8123/" width="100%" height="500"><p>Your browser does not support iframes.</p></iframe></div>
+            
         </div>
     </div>
     <footer>

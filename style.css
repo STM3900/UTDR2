@@ -20,6 +20,7 @@ footer {
     color: white;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    border-top: solid 1px #0e0d0d; 
 }
 
 footer a:link{
@@ -354,6 +355,34 @@ textarea:focus{
     transition: background-color 0.3s, color 0.3s;
     cursor: pointer;
 }
+
+#panel, #flip {
+  padding: 5px;
+  text-align: center;
+  border-bottom: solid 1px #ff0000;
+}
+
+#panel {
+  padding: 10px;
+  display: none;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+    background: #151515;
+    border-left: 1px solid #151515;
+  }
+
+::-webkit-scrollbar-track {
+    border-radius: 1px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #d6d6d6;
+    border-radius: 4px;
+    border-left: 2px solid #151515;
+  }
 
 @keyframes rainbow {
     0% {
